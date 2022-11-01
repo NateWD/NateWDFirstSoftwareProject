@@ -1,0 +1,16 @@
+<!-- Optional class -->
+<style>
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+</style>
+
+<body class="sword1" style="background-color:bisque">
+<h1> Edit or Create user name</h1>
+<%= bootstrap_form_with model: @player, url: village_path(@player), method: :patch, local: true do |p| %>
+  <%= p.text_field :player_name %>
+  <%= p.submit %>
+<% end %>
+
+<%= link_to 'Cancel', village_path, class: 'btn btn-danger' %>
+</body>

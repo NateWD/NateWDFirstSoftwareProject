@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+   
+body{
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/30/12/16/question-mark-1872665__340.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+</style>
+</head>
+<body class="sword1">
+
+<h1 style="text-align:center; color:white;"><b>Help Page</b></h1>
+<table class="table table-lg" style="text-align:center">
+  <thead class="thead-dark">
+    <tr>
+      <th><b>Tokens</b></th>
+      <th><b>Arena</b></th>
+      <th><b>Managing Inventory</b></th>
+      <th><b>Adding Friends</b></th>
+      <th><b>Changing Home</b></th>
+      <th><b>Shop</b></th>
+      <th><b>Items</b></th>
+    </tr>
+  </thead>
+  <tbody style="background-color:white">
+    <tr>
+        <td><b>Tokens are the games primary source of currency. You can use tokens to purchase
+        additional weopons, pets, potions, and houses. You can aquire more 
+        tokens by winning a match in the Arena by either playing agianst the
+        games AI feature or inviting another player to play agianst you in a 
+        rock, paper, scissors style of combat. You can see the amount tokens you
+        are carrying by looking up at the top left corner of the screen after
+        getting past the apps Welcome page.</b></td>
+        <td><b>The Arena is where you can play agianst other players for experience
+        towards your rank. You can also obtain tokens to purchase items in the 
+        Shop. You can post a challenge so that people who are not on your friends
+        list can accept and may play you to win tokens and experience. You can also 
+        send a direct challenge to someone on your friends list by clicking their name 
+        and then sending a challenge. If nobody happens to be online you can play agianst 
+        the games AI for tokens and experience towards your rank.</b></td>
+        <td><b>You can manage your current inventory by selecting the manage inventory
+        option from your Home page. There you can select what weapon you currently have
+        equipped. You can change your pet, and equipped potion.</b></td>
+        <td><b>You can add aditional friends to your friends list by selecting the friends
+        list option on the left side of the screen on either the Home page, or the Arena
+        page. From there you will have an option to add a friend where you can enter in the
+        email of who you would like to add to your friends list. Once a player is added to
+        your friends list you will be able to see their email under where you added them.</b></td>
+        <td><b>You can change your home by using the customize home feature found in the Home
+        page. From there you can alter the appearence of your own home. You can obtain a
+        new home from the Shop.</b></td> 
+        <td><b>The games Shop allows you to spend your tokens to purchase weapons, pets, homes,
+        and potions. You can purchase an item by clicking the purchase button when you have 
+        aquired enough tokens. Once an item is purchased you can equip it from the manage inventory
+        option in the Home page. You can access the games shop from the Village or Home page.</b></td>
+        <td><b> Items refer to things such as: weapons, houses, pets, and potions. These are
+        obtained from the store and can be altered in the games manage inventory and customize home 
+        from the Home page.</b></td>  
+    </tr>
+  </tbody>
+</table>
+<p>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+</p>
+<p style="text-align:center"><%= link_to 'Village', village_path, class: 'btn btn-primary'%>
+|<%= link_to 'Arena', arena_path, class: 'btn btn-danger'%>|<%= link_to 'Home', personal_page_path(current_player.id), class: 'btn btn-secondary'%></p>
+</body>
+</html>
+

@@ -1,0 +1,130 @@
+
+<%# <body style="background-color:DarkGoldenRod"> %>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Title</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/uikit.min.css" />
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+<style>
+body{
+    background-image: url('https://media2.giphy.com/media/ED7Mr5Eg83ocbhsPpY/giphy.gif?cid=ecf05e472t02j973k4nmm6268xtlo8uefq83u7dk6q2eyytu&rid=giphy.gif&ct=g');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+   
+}
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+
+</style>
+</head>
+<body class="sword1">
+<body>
+<h1 style = "text-align:center; color:white"> <%= @inventory.player.player_name %>'s Inventory Page</h1>   
+
+
+
+
+<div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+
+<table class="table table-bordered table-large table-dark table-pull-right" style = "width:50px; height: 50px;" >
+    <thead class="thead-dark" style="text-align:center; ">
+        <tr>
+            
+            <th>Stats for</th>
+            <th>Damage</th>
+            <th>Health</th>
+            <th>Armor</th>
+            
+        </tr>
+    </thead>
+
+  <tbody style="text-align:center; background-color:white">
+
+      <tr>
+
+        <td style="color:black"><%= @inventory.player.player_name %></td>
+        <td style="color:black"><%= @inventory.player.damage %></td>
+        <td style="color:black"><%= @inventory.player.health %></td>
+        <td style="color:black"><%= @inventory.player.armor %></td>
+      </tr>
+
+   
+
+  </tbody>
+
+
+</table>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body"></div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body"></div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body"></div>
+    </div>
+</div>
+
+<div class="uk-grid-medium uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body"><table class="table table-bordered table-sm table-dark table-pull-left" style = "width:50px; height: 50px;" >
+    <thead class="thead-dark" style="text-align:center; ">
+        <tr>
+            <th>Name</th>
+            <th>Damage</th>
+            <th>Health</th>
+            <th>Armor</th>
+            
+        </tr>
+    </thead>
+
+  <tbody style="text-align:center; background-color:white">
+
+    <%
+    
+    @inventory.items.each do |item| %> 
+
+      <tr>
+
+        <td style="color:black"><%= item.name %></td>
+        <td style="color:black"><%= item.damage %></td>
+        <td style="color:black"><%= item.health %></td>
+        <td style="color:black"><%= item.armor %></td>
+        <%if item.icon_image.attached?%>
+    
+ <td><%= image_tag item.icon_image, class: "w3-circle", style:"width:5em; height:5em;" %></td>
+
+<%end %>
+        <td style="color:black"><%= link_to "Equip", inventory_path, class: "btn btn-primary"%> </td>
+            
+ <%# <%= image_tag @personal_pages.house_image, class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 50rem;' %>
+    <%# <% else %> 
+    <%# <%= image_tag 'tent.jpg', class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 50rem;' %>
+
+      </tr>
+
+    <% end %>
+
+  </tbody>
+
+
+
+
+</table><div class="uk-card uk-card-default uk-card-body"><%= image_tag 'inventory2.jpg', class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 50rem;' %></div></div>
+    </div>
+    <div>
+        
+    </div>
+   
+ 
+<%# <h2 style="text-align:center;"><%=link_to 'Equip', edit_item_path, class: "btn btn-danger"%>
+<h2 style="text-align:left;"><%=link_to 'Back to Profile Page', personal_page_path, class: "btn btn-danger"%></h2>
+</body>

@@ -1,0 +1,88 @@
+
+<style>
+body{
+    background-image: url('https://c.tenor.com/88uRVkBkL6oAAAAC/forest.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+   
+}
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+
+</style>
+
+<body class="sword1">
+
+<h1 style="text-align:center; color:black"><b>Village</b></h1>
+
+<p style="text-align:right; color:white"><b><%=link_to 'Help Me', help_path, class: 'btn btn-info'%></b></p>
+<!-- This is just using some custom bootstrap grid alignment. Shout out to Prof. Flemming for the helping finding the grid option. /Nate-->
+<div class="row">
+    <div class="col-2" style="color:white; background-color:DarkOliveGreen"><h1>Friends</h1>
+    <!-- This bit is definitely violating the uniqueness contraint in the database I just could not find another way of doing this. 
+    You can see if you run rails test because the navbar made the email and stuff a unique key. I also do not think you I should be
+    utilizing the primary key like this. /Nate-->
+        <p>Your Identification Number is <%= current_player.id %></p>
+    <nav class="nav flex-column">
+        <a class="nav-link" aria-current="page" href="#"><%= link_to 'Add Friend', new_friend_path(current_player.id), class: 'btn btn-secondary'%></a>
+        <% current_player.friends.each do |f|%>
+            <a class="nav-link" href="#">
+                <% if f.player_name == nil %>
+                    <%=link_to f.email.concat("'s Home"), personal_page_path(f.identification_number), class: 'btn btn-secondary' %> 
+                    <%=link_to 'Remove', remove_friend_path(f.player_id, f.identification_number), method: :delete %></a>
+                <% else %>
+                    <%=link_to f.player_name.concat("'s Home"), personal_page_path(f.identification_number), class: 'btn btn-secondary' %>
+                    <%=link_to 'Remove', remove_friend_path(f.player_id, f.identification_number), method: :delete, class: 'btn btn-warning' %></a>
+                <% end %>
+        <% end %>
+    </nav>
+   </div>
+    <div class="col-8">
+
+<%= image_tag 'village_2.jpg', class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 50rem;' %>
+    </div>
+    <div class="col-2">
+    <!-- So, I could not figure out how to add the player name to the navbar sign up feature. If you make a new account you do not actually
+    have to have a player name /Nate-->
+    <% if current_player.player_name == nil %>
+        <%= link_to 'Create a Player Name', edit_player_name_path(current_player.id), class: 'btn btn-primary'%>
+    <% else %>
+        <%= link_to 'Change your Player Name', edit_player_name_path(current_player.id), class: 'btn btn-primary'%>
+    <% end %>
+    </div>
+</div>
+<p>
+</p>
+
+<!-- Implemented a table just to make some wording look neat -->
+<table class="table table-lg table-borderless" style="max-width: 65rem;">
+    <thead class="thead-dark" style="text-align:center;">
+        <tr>
+            <th>Shop</th>
+            <th>Arena</th>
+            <th>Home</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center; background-color:grey">
+        <tr>
+            <td style="color:white">The Shop is where you as a player may use tokens to purchase
+             additional cosmetics for your own personal home. The Shop also 
+             offers items to improve your performance in the brutal arena. <b>(Not functional)</b></td>
+            <td style="color:white">The Arena is bloody place where you can risk your life for glory 
+            and tokens.</td>
+            <td style="color:white">Your Home is where you can communcate with other players and create 
+            your own unique page with your winnings.</td>
+        <tr>
+        <tr>
+            <td><%=link_to 'Shop', welcome_path, class: 'btn btn-secondary'%></td>
+            <td><%= link_to 'Arena', arena_path, class: 'btn btn-danger'%></td>
+            <td><%= link_to 'Your Home', personal_page_path(current_player.id), class: 'btn btn-secondary'%></td>
+        </tr>
+    </tbody>
+<table>
+
+<%= link_to 'Back to Welcome Screen', welcome_path, class: 'btn btn-primary'%>
+
+</body>

@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="inventories.css">
+<style>
+body{
+    background-image: url('https://media2.giphy.com/media/ED7Mr5Eg83ocbhsPpY/giphy.gif?cid=ecf05e472t02j973k4nmm6268xtlo8uefq83u7dk6q2eyytu&rid=giphy.gif&ct=g');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+   
+}
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+
+</style>
+<h1>Equip Item</h1>
+
+<%= bootstrap_form_with model: @items, url: inventory_path(@items), method: :patch, local: true do |f| %>
+
+  <%= f.text_field :title %>
+
+  <%= f.text_area :description %>
+
+  <%= f.date_field :due_date %>
+
+  <%= f.submit %>

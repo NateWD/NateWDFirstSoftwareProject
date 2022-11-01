@@ -1,0 +1,70 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    background-image: url('https://i.gifer.com/7ZQ7.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+   
+}
+
+<style>
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+</style>
+
+<body class="sword1" style="background-color:DarkSeaGreen">
+<h1 style="text-align:center; color:white"><b style="background-color:darkgreen">Welcome to <%= @player.player_name %>'s Profile Page!</b></h1>
+
+
+
+
+
+
+
+
+    <%if @personal_pages.house_image.attached?%>
+    <div class = "my-4">
+ <%= image_tag @personal_pages.house_image, class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 50rem;' %>
+    <% else %>
+    <%= image_tag 'tent.jpg', class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 50rem;' %>
+ </div>
+<%end %>
+  
+<div class="row justify-content-center">
+    <div class="col-auto">
+<table class="table table-lg table-borderless" style="max-width: 65rem;">
+    <thead class="thead-dark" style="text-align:center; ">
+        <tr>
+            <th>Back to the Village</th>
+            <th>Inventory</th>
+            
+        </tr>
+    </thead>
+    <tbody style="text-align:center; background-color:forestgreen">
+        <tr>
+            <td style="color:white">The village is the central hub in the world of Havoc. From there you can seek the challenge of mighty foes in the arena, or browse the fine wares in the shop.</td>
+            <td style="color:white">From the inventory page, you can equip or unequip the weapons and armor you have collected in this world. </td>
+            
+        <tr>
+        <tr>
+            <td><%=link_to 'Village', village_path, class: "btn btn-primary"%></td>
+            <td><%=link_to 'Inventory', inventory_path, class: "btn btn-primary"%></td>
+            
+            
+        </tr>
+    </tbody>
+<table>
+</div>
+</div>
+
+</body>

@@ -1,0 +1,25 @@
+<h1>Add a Friend</h1>
+
+<style>
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+</style>
+
+<body class="sword1" style="background-color:bisque">
+<%= bootstrap_form_with model: @friend, method: :post, url: village_path(@friend), local: true do |f| %>
+  <p>(Optional)</p>
+
+  <%= f.text_field :player_name %>
+  <p>(Not Optional)</p>
+  <!-- I just need this email for something to be displayed it does not actually require that players email to match /Nate-->
+  <%= f.text_field :email%>
+  <!-- This is what actually allows you visit the players home that you want on your friends list/Nate-->
+  <%= f.number_field :identification_number%>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= link_to 'Cancel', village_path, class: 'btn btn-danger'%>
+</body>

@@ -1,0 +1,9 @@
+<h1>Upload a new home image</h1>
+
+
+<%= bootstrap_form_with model: @personal_page, url: personal_page_path(@player.id), method: :patch, local: true do |f| %>
+ <%= f.file_field :house_image %>
+ <%= f.submit %>
+
+
+ <% end %>

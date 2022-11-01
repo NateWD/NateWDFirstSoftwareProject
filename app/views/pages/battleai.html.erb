@@ -1,0 +1,46 @@
+<style>
+body{
+    background-image: url('https://c.tenor.com/x15S5rhHVscAAAAC/anime-purple.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+</style>
+<body class="sword1">
+
+<h2 style="text-align:left; color:white"><b style="background-color:black" class="border border-color:info">Currency in Wallet <%= current_player.wallet %></b></h2>
+<h1 style="text-align:center; color:white"><b>Torg the Undying</b></h1>
+<p style="text-align:center; color:white"><b>(For some reason he never stays dead)</b></p>
+
+<p style="text-align:right;"><%=link_to 'Help Me', help_path, class: 'btn btn-info'%></p>
+<p>
+</p>
+
+<div class="row">
+    <div class="col-2" style="color:white; background-color:black; text-align:center"><h1>Stats</h1>
+        <p>Player/Rank/Wins/Loses</p>
+        <p class="nav-item" href="#">
+        <!-- I found a website for how to implement sql stuff in ruby on rails the link will be in task plan reflections.
+        Although styling the way this appears on the page has becom a pain. I could have allowed the route to take in player id's
+        but that messed me all up. /Nate-->
+            <%= Player.pluck(:email, :player_rank, :player_wins, :player_loses)%>
+        </p>      
+   </div>
+
+    <div class="col-8">
+        <%= image_tag 'warrior.jpg', class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 20rem;' %>
+        <p>
+        </p>
+        <h1 style="text-align:center;"><%=link_to 'Fight Torg the Undying', random_number_path, class: "btn btn-primary"%></h1>
+    </div>
+    <!--Never needed to use the additional space but I wanted it be evened out. /Nate-->
+    <div class="col-2">
+    </div>
+</div>
+<p style="text-align:center">
+    <%= link_to 'Arena', arena_path, class: 'btn btn-danger' %>
+</p>
+</body>

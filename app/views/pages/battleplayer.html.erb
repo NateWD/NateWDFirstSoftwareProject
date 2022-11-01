@@ -1,0 +1,25 @@
+<style>
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+</style>
+
+
+<body class="sword1" style="background-color:bisque;">
+
+<h1 style="text-align:center;">Online Battle</h1>
+
+<p style="text-align:right;"><%=link_to 'Help Me', help_path%></p>
+
+
+
+<%= image_tag 'battleplayer.jpg', class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 42rem;' %>
+<p>
+</p>
+
+
+<h1 style="text-align:center;"><%=link_to 'Waiting on other player..', village_path, class: "btn btn-primary"%></h1>
+
+
+<%= link_to 'Back', arena_path, class: 'btn btn-danger'%>
+</body>

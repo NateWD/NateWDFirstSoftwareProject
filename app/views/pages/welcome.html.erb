@@ -1,0 +1,43 @@
+
+<!-- This is just some custome css styling. Adding a background image to cover the whole page.
+I repeat this same kind of styling technique on various pages I worked on /Nate-->
+<style>
+body{
+    background-image: url('https://images3.alphacoders.com/243/243217.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+</style>
+
+<!-- You can build your own custome cursor then call on the class and use that style to cover the body of the page. /Nate-->
+<body class="sword1">
+
+<h1 style="text-align:center; color:white"><b>Welcome to HAVOC</b></h1>
+<%= image_tag 'welcome_trees.jpg', class: 'w-100 shadow-lg d-block mx-auto', style: 'max-width: 42rem;' %>
+
+<p>
+</p>
+
+<h1 style="text-align:center;"><%=link_to 'About This App', about_path, class: "btn btn-primary"%></h1>
+
+<p>
+</p>
+
+<!-- Do not want the user to see the Village button if they are not signed in /Nate-->
+<% if player_signed_in? %>
+
+    <h1 style="text-align:center;"><%=link_to 'Village', village_path, class: "btn btn-primary"%></h1>
+
+<% else %>
+
+    <p style="text-align:center; color:white;">
+        <b style="background-color:black" class="border border-primary">
+        You can sign up or sign in by clicking one of the options at the top left!<b>
+    </p>
+    
+<% end %>
+
+</body>

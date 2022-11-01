@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<style>
+
+.alpha { color: $purple; }
+
+</style>
+<html>
+  <head>
+    <title>Project App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000;">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <% if player_signed_in? %>
+        <li class="nav-item <%= active_class(edit_player_registration_path) %>">
+          <% if current_player.player_name == nil%>
+            <h4><b><%= link_to "#{current_player.email}", edit_player_registration_path, class: 'nav-link' %></b></h4>
+          <% else %>
+            <h4><b><%= link_to "#{current_player.player_name}", edit_player_registration_path, class: 'nav-link' %></b></h4>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <h4><b><%= link_to 'Sign Out', destroy_player_session_path, method: :get, class: 'nav-link' %></b></h4>
+        </li>
+      <% else %>
+        <li class="nav-item <%= active_class(new_player_session_path) %>">
+          <h4><b><%=link_to 'Sign In', new_player_session_path, class: 'nav-link' %></b></h4>
+        </li>
+        <li class="nav-item <%= active_class(new_player_registration_path) %>">
+          <h4><b><%= link_to 'Sign Up', new_player_registration_path, class: 'nav-link' %></b></h4>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
+    <main role="main" class="container">
+
+      <% flash.each do |key, message| %>
+        <div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
+          <%= message %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </main>
+  </body>
+</html>

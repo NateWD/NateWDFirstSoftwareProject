@@ -1,0 +1,44 @@
+<style>
+
+body{
+    background-image: url('https://64.media.tumblr.com/f71aa08b75515d78c1921f069482f5c3/8205ca7135e737f0-3c/s500x750/2385dec7fbc88321d47b5ed0c00a9f3ff2e31695.gifv');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+   
+}
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+</style>
+
+<body class="sword1" style="background-color:bisque">
+
+<h1 style="text-align:center; color:white">Arena</h1>
+
+<p style="text-align:right;"><%=link_to 'Help Me', help_path, class: 'btn btn-info'%></p>
+
+<%= image_tag 'arena_entrance.jpg', class: 'w-100 rounded-square shadow-lg d-block mx-auto', style: 'max-width: 50rem;' %>
+<p>
+</p>
+
+<table class="table table-lg table-borderless" style="max-width: 65rem;">
+    <thead class="thead-dark" style="text-align:center;">
+        <tr>
+            <th>Battle Torg</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center; background-color:grey; color:white">
+        <tr>
+            <td>Battle for increase in rank. Who knows you may just win.</td>
+        <tr>
+        <tr>
+            <td><%=link_to 'Battle AI', battleai_path, class: 'btn btn-primary'%></td>
+        </tr>
+    </tbody>
+<table>
+
+<%= link_to 'Back', village_path, class: 'btn btn-danger'%>
+
+</body>

@@ -1,0 +1,17 @@
+<!-- Not in use was trying to figure out whether to use new/create or edit/update for the friend database /Nate-->
+<style>
+
+.sword1 {cursor: url('http://www.rw-designer.com/cursor-view/18584.png'), auto;}
+
+</style>
+
+<body class="sword1" style="background-color:bisque">
+<h1>Add a Friend</h1>
+<%= bootstrap_form_with model: @friend, method: :post, url: village_path(@player), local: true do |f| %>
+  <%= f.text_field :email %>
+  <%= f.text_field :player_id %>
+  <%= f.text_field :id %>
+  <%= f.text_field :player %>
+  <%= f.submit %>
+<% end %>
+</body>
