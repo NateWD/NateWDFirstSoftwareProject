@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id           :bigint           not null, primary key
+#  armor        :integer
+#  damage       :integer
+#  equipped     :boolean
+#  health       :integer
+#  name         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  inventory_id :bigint
+#
+# Indexes
+#
+#  index_items_on_inventory_id  (inventory_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (inventory_id => inventories.id)
+#
+
+one:
+  name: MyString
+  damage: 1
+  armor: 1
+  health: 
+  inventory: one
+
+two:
+  name: MyString
+  damage: 1
+  armor: 1
+  health: 1
+  inventory: one

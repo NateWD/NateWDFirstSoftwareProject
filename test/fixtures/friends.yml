@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: friends
+#
+#  id                    :bigint           not null, primary key
+#  email                 :string
+#  identification_number :integer
+#  player_name           :string
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  player_id             :bigint
+#
+# Indexes
+#
+#  index_friends_on_player_id  (player_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (player_id => players.id)
+#
+
+one:
+  player_name: AliceTheGreat
+  email: Alice@email.com
+  identification_number: 2
+  player: one
+
+two:
+  player_name: Ricky
+  email: ricky@email.com
+  identification_number: 0
+  player: one
